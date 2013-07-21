@@ -28,8 +28,13 @@
 				<span class="noMatches">no matches</span>
 			</div>
 		</div>
-		<div id="toolTable" class="container"></div>
-		<small><a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">data source</a></small>
+
+		<div class="container">
+			
+			<div id="toolTable"><div id="toolDetails"></div></div>
+			<small><a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">data source</a></small>
+		</div>
+
 		</div><!-- end wrapper -->
 
 		<div id="info" class="section">
@@ -47,16 +52,22 @@
 		</div>
 	
 	
+	<script id="toolDetails" type="text/html">
+		
+		{{#rows}}
+  		<h4 class="tool-popup">{{tooldetails}}</h4>
+		{{/rows}}
+	</script>
 
 	<script id="toolTable" type="text/html">
 		<table>
 		<tr>
-			<th><span class="sml-button tHeader sortable">Tool</span></th>
-			<th><span class="sml-button tHeader sortable">Owner</span></th>
-			<th><span class="sml-button">Location</span></th>
+			<th><span class="tHeader sortable">Tool</span></th>
+			<th><span class="tHeader sortable">Owner</span></th>
+			<th><span class="">Location</span></th>
 		</tr>
 		  {{#rows}}
-		  	<tr class="table-stripe {{checkedout}} {{rowNumber}}"><td>{{tool}}</td><td><a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}">{{owner}}</a></td><td>{{street}}, {{city}}, {{state}}</td><td class="borrow">{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="sml-button">Borrow!</span></a>{{/checkedout}}</td></tr>
+		  	<tr id="{{rowNumber}}" class="table-stripe {{checkedout}} row"><td>{{tool}} {{#tooldetails}}<a href="#" class="tool-deets">deets</a>{{/tooldetails}}</td><td><a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}">{{owner}}</a></td><td>{{street}}, {{city}}, {{state}}</td><td class="borrow">{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="sml-button">Borrow!</span></a>{{/checkedout}}</td></tr>
 		  {{/rows}}
 	  </table>
 	</script>
@@ -65,7 +76,21 @@
   document.addEventListener('DOMContentLoaded', function() { 
   	Sheetsee.makeTable(gData, "#toolTable")
   	Sheetsee.initiateTableFilter(gData, "#toolFilter", "#toolTable")
-   }) 
+
+  $('.row').live("click", function(event) {
+   	var rowNumber = $(this).closest("tr").attr("id")
+   	console.log("row number", rowNumber)
+ 	 	$('#' + rowNumber).addClass("selectedRow")
+			var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
+			console.log("element", dataElement)
+			var toolDetail = [dataElement[0].tooldetails]
+			console.log("detail --", toolDetail)
+			var toolDetails = ich.toolDetails({
+		 	 "rows": dataElement
+	  	})
+	  	$('#toolDetails').html(toolDetails)
+   })
+})
 	</script>
 
 	<script type='text/javascript'>	
@@ -85,6 +110,8 @@
 		//     e.layer.bindPopup(popupContent,{closeButton: false,})
 		//   })
 		// }
+
+
 
 	$('#available-tools-checked').bind("change", function() {
       if ($(this).attr('checked')) {

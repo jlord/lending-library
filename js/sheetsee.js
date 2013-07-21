@@ -163,8 +163,14 @@ function getMin(data, column){
 function getMatches(data, filter, category) {
   var matches = []
   data.forEach(function (element) {
-    var projectType = element[category].toLowerCase()
-    if (projectType === filter.toLowerCase()) matches.push(element)
+    if (category === 'rowNumber') {
+      var projectType = element[category].toString()
+      if (projectType === filter) matches.push(element)
+    }
+    else {
+      var projectType = element[category].toLowerCase()
+      if (projectType === filter.toLowerCase()) matches.push(element)
+    }
   })
   return matches
 }
