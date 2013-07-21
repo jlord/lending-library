@@ -1,17 +1,17 @@
 /* Page Specific CSS */
 
-body {font-family: Lato; background: #fff; color: #333; font-size: 16px; border: 10px #eee solid; margin: 0px; padding: 20px 20px 200px 20px; }
-h1, h2, h3, h4, h5, h6 {font-family: helvetica;}
-h2 {margin-top: 82px;}
+body {font-family: Lato; background: #fff; color: #333; font-size: 16px; border: 10px #eee solid; margin: 0px;}
+h1, h2, h3, h4, h5, h6 {font-family: Lato;}
+
+h1 {font-family: League Gothic; color: #98C700; font-size: 60px; margin: 18px 0px;}
 
 h3.functionH {/*background-color: #47CCFC; color: #fff;*/ padding: 4px 8px; margin-top: 52px; border-top: 3px solid #47CCFC; border-left: 3px solid #47CCFC; border-right: 3px solid #47CCFC; margin-left: -14px; padding-left: 14px;
 								padding-top: 9px; }
 img {width: 100%;} 
 
-p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #acacac solid;}
-p a:visted {color: #ff00ff;}
-a:hover {color: #47CCFC;}
-a:visited {color: #333;}
+a {text-decoration: none; color: #333; }
+p a {color: #333; font-weight: bold; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #acacac solid;}
+p a:hover, a:hover {color: #98C700; border-color: #98C700;}
 small {padding: 10px 0px;}
 p {line-height: 24px;}
 ol {line-height: 24px;}
@@ -22,10 +22,14 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 .fleft {float: left;}
 .fright {float: right;}
 
-input[type="checkbox"] {     
-    background: #f6f6f6;
-}
+input[type="checkbox"] { background: #f6f6f6; font-size: 16px; }
 
+.span1 {width: 48%; float: left; padding-right: 18px; min-width: 350px;}
+.span1:last-child {padding-right: 0px; }
+
+#info p {font-size: 12px; line-height: 1.5em;}
+
+#main-content {padding-bottom: 50px;}
 
 ::selection {background: #ff00ff;} /*#44FFB4*/
 ::-moz-selection {background: #ff00ff;}
@@ -51,7 +55,8 @@ tr {height: 30px;}
 #toolTable table {min-width: 650px;}
 
 
-#wrapper {margin: 0px auto; max-width: 800px; padding-top: 40px; /*margin-left: 250px;*/}
+.wrapper {margin: 0px auto; overflow: auto; max-width: 800px; padding: 20px;}
+.section {background: #eee; overflow: auto;}
 pre {word-wrap: break-word; padding: 14px; background: #F0F0F0; }
 code {font-family: "Consolas", "Ubuntu Mono", monospace; font-size: 13px; color: #636363; font-weight: normal;}
 .button {padding: 5px 7px; background-color: #fff; font-size: 10px;}

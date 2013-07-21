@@ -14,12 +14,11 @@
 		<link media="screen" rel="stylesheet" type="text/css" href="/css/site.css">
 	</head>
 <body>
-	<div id="wrapper">
-		<h1>Tool Lending!</h1>
-		<small><a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">data source</a></small>
+	<div id="main-content" class="wrapper">
+		<h1>TOOL LENDING</h1>
+		<h3>Who's got what and what you can borrow.</h3>
 		<!-- <div id="map" class="container"></div> -->
 		<!-- <span id="sortChart" class="button"> Sort values</span> -->
-		<h3>Da Tools</h3>
 		<div class="container">
 			<h6 class="fleft"><input type="checkbox" id="available-tools-checked">Show only available tools</h6>
 			<div class="flilter-container fright">
@@ -30,13 +29,24 @@
 			</div>
 		</div>
 		<div id="toolTable" class="container"></div>
-		<div id="info">
-			<div class="span1">
-				<p>This</p>
+		<small><a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">data source</a></small>
+		</div><!-- end wrapper -->
+
+		<div id="info" class="section">
+			<div class="wrapper">
+				<div class="span1">
+					<h4>The Data</h4>
+					<p>The data fueling this website is managed through <a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">this Google Spreadsheet</a>. If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows. If you want to start your own for your neighborhood or group of friends, see details below.</p>
+				</div>
+
+				<div class="span1">
+					<h4>The Site</h4>
+					<p>This site takes data from a Google Spreadsheet, visualizes it and makes it easy to see and use on a computer or a smartphone - it uses. It's an open source project created by Jessica Lord. . Visualizing the spreadsheet data happens with . Setting up your own instance of this website is free and takes just a few steps. Those steps and source for this project are on <a href="http://www.github.com/sheetsee-tool-lending" target="_blank">GitHub</a>.</p>
+				</div>
 			</div>
 		</div>
 	
-	</div><!-- end wrapper -->
+	
 
 	<script id="toolTable" type="text/html">
 		<table>
@@ -46,7 +56,7 @@
 			<th><span class="sml-button">Location</span></th>
 		</tr>
 		  {{#rows}}
-		  	<tr class="table-stripe {{checkedout}} {{rowNumber}}"><td>{{tool}}</td><td><a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}">{{owner}}</a></td><td>{{street}}, {{city}}, {{state}}</td><td class="borrow"><span class="sml-button">Borrow!</span></td></tr>
+		  	<tr class="table-stripe {{checkedout}} {{rowNumber}}"><td>{{tool}}</td><td><a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}">{{owner}}</a></td><td>{{street}}, {{city}}, {{state}}</td><td class="borrow">{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="sml-button">Borrow!</span></a>{{/checkedout}}</td></tr>
 		  {{/rows}}
 	  </table>
 	</script>
@@ -79,7 +89,7 @@
 	$('#available-tools-checked').bind("change", function() {
       if ($(this).attr('checked')) {
       	$(this).attr('checked', 'checked')
-      	var availableTools = Sheetsee.getMatches(gData, "no", "checkedout")
+      	var availableTools = Sheetsee.getMatches(gData, "", "checkedout")
       	Sheetsee.makeTable(availableTools, "#toolTable")
       	Sheetsee.initiateTableFilter(availableTools, "#toolFilter", "#toolTable")
     	}
