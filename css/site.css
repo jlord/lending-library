@@ -1,69 +1,38 @@
-/* Page Specific CSS */
 
-body {font-family: Lato; background: #fff; color: #333; font-size: 16px; border: 10px #eee solid; margin: 0px;}
-h1, h2, h3, h4, h5, h6 {font-family: Lato;}
 
-h1 {font-family: League Gothic; color: #98C700; font-size: 60px; margin: 18px 0px;}
-
-img {width: 100%;} 
-
-a {text-decoration: none; color: #333; border-bottom: 1px #acacac dotted; }
-p a {color: #333; font-weight: bold; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #acacac dotted;}
-p a:hover, a:hover {color: #98C700; border-color: #98C700;}
-small {padding: 10px 0px;}
-p {line-height: 24px;}
-ol {line-height: 24px;}
-
-pre {word-wrap: break-word; padding: 14px; background: #F0F0F0; }
-code {font-family: "Consolas", "Ubuntu Mono", monospace; font-size: 13px; color: #636363; font-weight: normal;}
-
-input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Lato; color: #acacac; font-size: 13px; height: 22px;}
-
-.fleft {float: left;}
-.fright {float: right;}
-
-input[type="checkbox"] { background: #f6f6f6; font-size: 16px; }
+body {font-family: Noto Serif; font-weight: lighter;}
+a {text-decoration: none; color: #fff;}
+a:hover {border-bottom: 1px dotted #fff;}
+small {font-family: Montserrat; font-weight: lighter; font-size: 11px; letter-spacing: .08em; }
+h4 {font-family: Montserrat; margin: 4px 0px; }
+.container {max-width: 870px; margin: 0px auto; overflow: auto; padding: 20px 0px;}
 
 .span1 {width: 48%; float: left; padding-right: 18px; min-width: 350px;}
 .span1:last-child {padding-right: 0px; }
 
-#info p {font-size: 12px; line-height: 1.5em; font-weight: lighter;}
-#info p, #info h4, #info a {color: #828282;}
-#info a:hover {color: #98C700;}
+#info, header {padding-right: 10px; padding-left: 10px;}
+#info a {color: #333; border-color: #333; font-weight: bold;}
+#info p {font-family: Helvetica; font-weight: lighter; font-size: 12px; line-height: 1.5em;}
 
-#main-content {padding-bottom: 50px;}
-.wrapper {margin: 0px auto; overflow: auto; max-width: 800px; padding: 20px;}
-.section {background: #eee; overflow: auto;}
+input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Montserrat; color: #acacac; font-size: 13px; height: 22px;}
 
-::selection {background: #E0E00E;}
-::-moz-selection {background: #E0E00E;}
+.sml-button {padding: 5px 7px; background-color: #DFDF1C; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Montserrat;}
 
-.container {overflow: auto;}
 
-/*#menu {color: #fff; padding: 20px; float: left; position: fixed; left: 40px; top: 40px; max-width: 300px; font-family: Helvetica; font-size: 14px;}
-#menu ul {list-style: none; margin: 0px; padding: 0px;}
-#menu li {line-height: 34px;}
-#menu li a {padding: 4px 8px; background-color: #F0F0F0; text-decoration: none; border: none;}
-#menu li a.a2 {background-color: #CCF4FF;}
-#menu li a:hover {background-color: #e7e7e7; color: #333;}*/
+#tools {}
+.tool-box {margin: 8px; padding: 12px; background: #DFDF1C; width: 250px; float: left; }
+.tool-box-tool {width: 100%; font-family: Bitter; text-align: center; color: #fff; font-weight: 300; font-size: 36px; padding: 10px 0px; display: block; cursor: pointer;}
+.tool-box:hover {background: #CBC62B;}
+.tool-box ul {list-style: none; margin: 0px; padding: 0px; color: #fff;}
+.tool-box li {margin: 4px 0px;}
+.tool-box-borrow {display: block; position: relative; border: 1px solid #fff; padding: 4px 0px; color: #fff; font-family: Montserrat; 
+ 	letter-spacing: .08em; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer;}
+.tool-box-borrow:hover {background: #fff; color: #CBC62B;}
 
-.sortable::after { content: " \2193 \2191 "; font-size: 10px; padding-left: 3px;}
-.sortable {cursor: pointer;}
+.tool-box-bottom {display: none;}
 
-.table-stripe:nth-of-type(odd) {background: #eee;}
-.table-stripe:hover {background: #DBE8A7; color: #333;}
-table {border-spacing: 0px;}
-td, th {padding-left: 6px; margin-bottom: 2px;}
-tr {height: 30px;}
+.selected-tool {background: #CBC62B;}
 
-#toolTable {width: 100%; min-width: 300px; overflow-x: auto; padding-bottom: 20px; z-index: 1; position: relative;}
-#toolTable table {min-width: 650px;}
-.tool-deets {font-size: 10px; font-style: italic;}
-.tool-popup {background: salmon; float: left; max-width: 300px; z-index: 10; position: relative;}
 
-/*.button {padding: 5px 7px; background-color: #fff; font-size: 10px;}*/
-.sml-button {padding: 5px 7px; background-color: #98C700; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Lato, Helvetica, Arial;}
-.sml-button:hover {background: #fff; color: #98C700; cursor: pointer;}
-.borrow {text-align: center;}
 
- .leaflet-popup-content h2 {margin-bottom: 4px; margin-top: auto;}
+
