@@ -16,23 +16,20 @@ h4 {font-family: Montserrat; margin: 4px 0px; }
 
 input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Montserrat; color: #acacac; font-size: 13px; height: 22px;}
 
-.sml-button {padding: 5px 7px; background-color: #DFDF1C; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Montserrat;}
-
+.sml-button {cursor: pointer;padding: 5px 7px; background-color: #DFDF1C; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Montserrat;}
+.sml-button:hover {background: #eee;}
+.button-pressed {background: #CBC62B;}
 
 #tools {}
 .tool-box {margin: 8px; padding: 12px; background: #DFDF1C; width: 250px; float: left; }
 .tool-box-tool {width: 100%; font-family: Bitter; text-align: center; color: #fff; font-weight: 300; font-size: 36px; padding: 10px 0px; display: block; cursor: pointer;}
-.tool-box:hover {background: #CBC62B;}
+.tool-box:hover {background: #eee;}
 .tool-box ul {list-style: none; margin: 0px; padding: 0px; color: #fff;}
 .tool-box li {margin: 4px 0px;}
-.tool-box-borrow {display: block; position: relative; border: 1px solid #fff; padding: 4px 0px; color: #fff; font-family: Montserrat; 
+.tool-box-borrow {display: block; position: relative; border: 1px solid #fff; padding: 4px 0px; color: #fff; font-family: Montserrat;
  	letter-spacing: .08em; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer;}
 .tool-box-borrow:hover {background: #fff; color: #CBC62B;}
 
 .tool-box-bottom {display: none;}
 
 .selected-tool {background: #CBC62B;}
-
-
-
-

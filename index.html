@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Tool Lending</title>
-		<script type="text/javascript" src="js/ICanHaz.js"></script> 
+		<script type="text/javascript" src="js/ICanHaz.js"></script>
 		<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.js'></script>
 		<script src='js/jquery.js '></script>
 		<script type="text/javascript" src='js/d3.js'></script>
@@ -10,7 +10,7 @@
 
 
     <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.css' rel='stylesheet' />
-		<link media="screen" rel="stylesheet" type="text/css" href="/css/style.css"> 
+		<link media="screen" rel="stylesheet" type="text/css" href="/css/style.css">
 		<link media="screen" rel="stylesheet" type="text/css" href="/css/site.css">
 	</head>
 	<body>
@@ -20,6 +20,7 @@
 		<div id="filters" class="container">
 			<input id="toolSearch" type="text" placeholder="hammer.."></input>
 			<span class="clear sml-button">Clear</span>
+			<span id="showAvailable" class="sml-button">Show Available</span>
 		</div>
 		<div id="tools" class="container"></div>
 		<div id="info" class="container">
@@ -51,7 +52,7 @@
 		</script>
 
 		<script type="text/javascript">
-	  document.addEventListener('DOMContentLoaded', function() { 
+	  document.addEventListener('DOMContentLoaded', function() {
 	  	// original tool boxes
 	  	drawToolBox(gData)
 	  })
@@ -61,7 +62,29 @@
   			"rows": data
   		})
   		$('#tools').html(tools)
-  	}	  
+  	}
+
+		// toggle available/all tools with search as well
+		$('#showAvailable').live("click", function(event) {
+			var searchValue = $('#toolSearch').val()
+			if ($(this).hasClass('button-pressed')) {
+				$(this).removeClass('button-pressed').removeClass('onlyAvailable').html('Show Available')
+				if (!searchValue) drawToolBox(gData)
+				toolsFromSearch(searchValue)
+			}
+			else {
+				$(this).addClass('button-pressed').addClass('onlyAvailable').html('Show All')
+				if (!searchValue) {
+					var availableTools = Sheetsee.getMatches(gData,"yes", "checkedout")
+					drawToolBox(availableTools)
+				}
+				else {
+					var searchResults = Sheetsee.getKeyword(gData, searchValue)
+					var availableFromSearch = Sheetsee.getMatches(searchResults,"yes", "checkedout")
+					drawToolBox(availableFromSearch)
+				}
+			}
+		})
 
 	  // toggle tool box expand
 	  $('.tool-box-tool').live("click", function(event) {
@@ -76,17 +99,20 @@
    		}
    	})
    	// filter input
-	  $('.clear').on("click", function() { 
+	  $('.clear').on("click", function() {
 	    $(this.id + "#toolSearch").val("")
 	    drawToolBox(gData)
 	  })
 
-   	$('#toolSearch').keyup(function(e) {
-   		console.log('key press!')
-    var text = $(e.target).val()
-    var searchedData = Sheetsee.getKeyword(gData, text)
- 		drawToolBox(searchedData)
-  })
+    $('#toolSearch').keyup(function(e) {
+      var text = $(e.target).val()
+			toolsFromSearch(text)
+  	})
+
+		function toolsFromSearch(searchTerm) {
+			var searchedData = Sheetsee.getKeyword(gData, searchTerm)
+			drawToolBox(searchedData)
+		}
 		</script>
 	</body>
 </html>
