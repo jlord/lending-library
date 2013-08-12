@@ -1,35 +1,51 @@
-
-
-body {font-family: Noto Serif; font-weight: lighter;}
-a {text-decoration: none; color: #fff;}
-a:hover {border-bottom: 1px dotted #fff;}
+body {font-family: Noto Serif; font-weight: lighter;  border: 52px #F8F8F8 solid; margin: 0px; padding: 20px 20px 200px 20px;}
+a {text-decoration: none; color: #fff; border-bottom: 1px dotted #eee;}
+a:hover {font-weight: 900;}
 small {font-family: Montserrat; font-weight: lighter; font-size: 11px; letter-spacing: .08em; }
-h4 {font-family: Montserrat; margin: 4px 0px; }
-.container {max-width: 870px; margin: 0px auto; overflow: auto; padding: 20px 0px;}
+h1 {font-size: 68px; color: #46a52d; margin: 30px 0px 20px 0px;}
+h4, h5 {font-family: Montserrat; margin: 4px 0px; }
+h5 {font-weight: lighter; color: #46a52d; text-transform: uppercase;}
+.container {max-width: 870px; margin: 0px auto; overflow: auto; padding: 20px 0px; }
 
 .span1 {width: 48%; float: left; padding-right: 18px; min-width: 350px;}
 .span1:last-child {padding-right: 0px; }
+
+ul.nav {list-style: none; margin: 0px; padding: 0px; font-family: Montserrat; color: #46a52d;}
+ul.nav li {display: inline; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding-right: 4px;}
+ul.nav a {color: #46a52d; border-bottom: 1px dotted #46a52d;}
+ul.nav a:hover {font-weight: 900;}
 
 #info, header {padding-right: 10px; padding-left: 10px;}
 #info a {color: #333; border-color: #333; font-weight: bold;}
 #info p {font-family: Helvetica; font-weight: lighter; font-size: 12px; line-height: 1.5em;}
 
-input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Montserrat; color: #acacac; font-size: 13px; height: 22px;}
+input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #46a52d; background-color: transparent; padding: 0px; font-family: Montserrat; color: #acacac; font-size: 13px; height: 22px;}
 
-.sml-button {cursor: pointer;padding: 5px 7px; background-color: #DFDF1C; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Montserrat;}
+.sml-button {cursor: pointer;padding: 5px 7px; background-color: #46a52d; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Montserrat;}
 .sml-button:hover {background: #eee;}
-.button-pressed {background: #CBC62B;}
+.button-pressed {background: #60bd68;}
 
-#tools {}
-.tool-box {margin: 8px; padding: 12px; background: #DFDF1C; width: 250px; float: left; }
+#tools {-webkit-column-count:3; }
+.tool-box {margin: 8px; padding: 12px; background: #46a52d; width: 250px; float: left; -webkit-column-break-inside:avoid; }
 .tool-box-tool {width: 100%; font-family: Bitter; text-align: center; color: #fff; font-weight: 300; font-size: 36px; padding: 10px 0px; display: block; cursor: pointer;}
-.tool-box:hover {background: #eee;}
-.tool-box ul {list-style: none; margin: 0px; padding: 0px; color: #fff;}
-.tool-box li {margin: 4px 0px;}
+.tool-box:hover {background: #eee; color: #46a52d;}
+
+.tool-box ul {list-style: none; margin: 20px 0px 0px 0px; padding: 0px; color: #fff;}
+.tool-box li {margin: 10px 0px;}
 .tool-box-borrow {display: block; position: relative; border: 1px solid #fff; padding: 4px 0px; color: #fff; font-family: Montserrat;
  	letter-spacing: .08em; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer;}
-.tool-box-borrow:hover {background: #fff; color: #CBC62B;}
+.tool-box-borrow:hover {background: #fff; color: #46a52d;}
 
 .tool-box-bottom {display: none;}
 
-.selected-tool {background: #CBC62B;}
+.selected-tool {background: #60bd68;}
+.tool-box.selected-tool:hover {background: #60bd68;}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
+	#tools {-webkit-column-count:1; }
+}
+
+/* 
+dark #46a52d
+light #60bd68
+hover #eee

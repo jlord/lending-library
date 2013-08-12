@@ -16,6 +16,11 @@
 	<body>
 		<header class="container">
 			<h1>Tool Lending</h1>
+			<ul class="nav">
+				<li><strong>LENDING IS LOVELY</strong></li>
+				<li>AN OPEN SOURCE, EASY TO DUPLICATE PROJECT</li>
+				<li><a href="#info">HERE'S HOW</a></li>
+			</ul>
 		</header>
 		<div id="filters" class="container">
 			<input id="toolSearch" type="text" placeholder="hammer.."></input>
@@ -25,13 +30,19 @@
 		<div id="tools" class="container"></div>
 		<div id="info" class="container">
 				<div class="span1">
-					<h4>THE DATA</h4>
-					<p>The data fueling this website is managed through <a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">this Google Spreadsheet</a>. If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows. If you want to start your own for your neighborhood or group of friends, see details below.</p>
+					<h4>OPEN SOURCE PROJECT</h4>
+					<p>The design and code for this website is open source on <a href="http://www.github.com" target="_blank">GitHub</a>, that means free for anyone to use. The data fueling this website is managed free and easily through a <a href="http://drive.doogle.com" target="_blank">Google Spreadsheet</a> that looks similar <a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">to this one</a>.</p>
+
+					<h4>EDIT</h4>
+					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows.  Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
 				</div>
 
 				<div class="span1">
-					<h4>THE SITE</h4>
-					<p>This site takes data from a Google Spreadsheet, visualizes it and makes it easy to see and use on a computer or a smartphone - it uses. It's an open source project created by <a href="mailto:jlord@github.com">Jessica Lord</a>. . Visualizing the spreadsheet data happens with . Setting up your own instance of this website is free and takes just a few steps. Those steps and source for this project are on <a href="http://www.github.com/sheetsee-tool-lending" target="_blank">GitHub</a>.</p>
+					<h4>START YOUR OWN</h4>
+					<p>The site can be duplicated and live in minutes. It is an open source project on GitHub, which hosts webpages for projects for free with <a href="http://pages.github.com" target="_blank">GitHub Pages</a>. All you need to do is <strong>fork</strong> the project to your account (also free) and copy and paste in your spreadsheet's unique key. More details are available on the <a href="http://www.github.com/jlord/sheetsee-tool-lending#Hi" target="_blank">readme</a>.</p>
+
+					<p>Jessica Lord built this. Contact via <a href="mailto:to.jlord@gmail.com">email</a>, <a href="http://www.twitter.com/jllord">tweet</a> or <a href="http://www.github.com/jlord" target="_blank">pull request</a>.
+
 				</div>
 		</div>
 
@@ -43,8 +54,9 @@
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
 					<li><a href="mailto:{{owneremail}}">{{owner}}</a></li>
-					<li>{{street}}, {{city}}, {{state}} <a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
-					{{#tooldetails}}<li><em>notes: {{tooldetails}}</em></li>{{/tooldetails}}
+					<li>{{street}}, {{city}}, {{state}}</li>
+					{{#tooldetails}}<li><small>NOTES : </small><em>{{tooldetails}}</em></li>{{/tooldetails}}
+					<li><a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
 				</ul>
 			</div>
 		</div>

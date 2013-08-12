@@ -2,5 +2,22 @@
 
 ![temp screenshot](https://raw.github.com/jlord/sheetsee-tool-lending/gh-pages/lending-ss.png)
 
-**This is a work in progress.** I'm currently running [sheetsee-cache](http://www.github.com/jlord/sheetsee-cache) to develop it locally. When it's all said and done I'll switch it over to client-side [sheetsee.js](http://www.github.com/jlord/sheetsee.js). This repo will only have a gh-pages branch, which means every fork comes with a working, hosted by GitHub website! All one needs to do is change the spreadsheet key to their spreadsheet's key. More details on all of this when it's finished...
+A webiste and spreadsheet set up to make lending tools to friends or neighbors easier.
+
+### Fork -n- Go!
+
+In a bit I'll do some more refining (and documentation) - but here's a fun fact:
+
+This repo only has a **gh-pages** branch, which means as soon as you **fork** it, you have a hosted and live version of it yourself! 
+
+Next, create a spreadsheet with the same column headers as [the original](https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c#gid=0).
+
+_Click on the `index.html` file, click edit and change **line (TBD)**. Replace the existing spreadsheet URL key with your spreadsheet's key. You'll find that by clicking (in Google Spreadsheets) File > Publish to the Web > Start Publishing, it will then display the key in a window. ![get key](https://raw.github.com/jllord/sheetsee-cache/master/img/key.png)_
+
+Commit those changes and **LIKE WOAH** you now have a version of this website hooked to a spreadsheet that you can distrubute however you'd like.
+
+## But How?
+
+A Google Spreadsheet holds all the data and it is connected to this website using the goodies in [sheetsee.js](http://www.github.com/jlord/sheetsee.js). Everytime you visit the website, you'll have the most up to date data that has been entered into the spreadsheet. 
+
 
