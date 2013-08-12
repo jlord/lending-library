@@ -1,6 +1,8 @@
-# Tool Lending Library Website
+# Hi!
 
 ![temp screenshot](https://raw.github.com/jlord/sheetsee-tool-lending/gh-pages/lending-ss.png)
+
+### A Tool Lending Library Site
 
 A webiste and spreadsheet set up to make lending tools to friends or neighbors easier.
 
@@ -12,7 +14,11 @@ This repo only has a **gh-pages** branch, which means as soon as you **fork** it
 
 Next, create a spreadsheet with the same column headers as [the original](https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c#gid=0).
 
+Currently this is still set up with node.js, the step below will work when I switch it over.
+
 _Click on the `index.html` file, click edit and change **line (TBD)**. Replace the existing spreadsheet URL key with your spreadsheet's key. You'll find that by clicking (in Google Spreadsheets) File > Publish to the Web > Start Publishing, it will then display the key in a window. ![get key](https://raw.github.com/jllord/sheetsee-cache/master/img/key.png)_
+
+To set it up now, clone this repo, cd into the folder, `npm install` and then `npm sever.js`.
 
 Commit those changes and **LIKE WOAH** you now have a version of this website hooked to a spreadsheet that you can distrubute however you'd like.
 
