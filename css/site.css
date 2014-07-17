@@ -25,9 +25,16 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 .sml-button:hover {background: #eee;}
 .button-pressed {background: #60bd68;}
 
-#tools {-webkit-column-count:3; }
-.tool-box {margin: 8px; padding: 12px; background: #46a52d; width: 250px; float: left; -webkit-column-break-inside:avoid; }
+/*#tools {-webkit-column-count:3; }
+.tool-box {margin: 8px; padding: 12px; background: #46a52d; width: 250px; -webkit-column-break-inside:avoid; }
+.tool-box:nth-child(1) {margin-top: 0;}
 .tool-box-tool {width: 100%; font-family: Bitter; text-align: center; color: #fff; font-weight: 300; font-size: 36px; padding: 10px 0px; display: block; cursor: pointer;}
+.tool-box:hover {background: #eee; color: #46a52d;}*/
+
+#tools {-webkit-column-count:3; -webkit-column-gap : 20px; -webkit-column-width: 250px;}
+.tool-box { background: #46a52d; padding: 12px; margin-bottom: 8px; box-sizing: border-box; -webkit-column-break-inside:avoid; }
+.tool-box:nth-child(1) {margin-top: 0;}
+.tool-box-tool { display: block; font-size: 36px; padding: 10px 0; text-align: center; color: #fff; width: 100%; cursor: pointer;}
 .tool-box:hover {background: #eee; color: #46a52d;}
 
 .tool-box ul {list-style: none; margin: 20px 0px 0px 0px; padding: 0px; color: #fff;}
@@ -45,7 +52,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 	#tools {-webkit-column-count:1; }
 }
 
-/* 
+/*
 dark #46a52d
 light #60bd68
 hover #eee
