@@ -31,11 +31,11 @@
 		<div id="tools" class="container"></div>
 		<div id="info" class="container">
 				<div class="span1">
+					<h4>USE THIS</h4>
+					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows. Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
+
 					<h4>OPEN SOURCE PROJECT</h4>
 					<p>The design and code for this website is open source on <a href="http://www.github.com" target="_blank">GitHub</a>, that means free for anyone to use. The data fueling this website is managed free and easily through a <a href="http://drive.doogle.com" target="_blank">Google Spreadsheet</a> that looks similar <a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">to this one</a>.</p>
-
-					<h4>EDIT</h4>
-					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows.  Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
 				</div>
 
 				<div class="span1">
@@ -54,10 +54,13 @@
 			<div class="tool-box-bottom {{rowNumber}}">
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
+					<li><small>WHO / WHERE : </small></li>
 					<li><a href="mailto:{{owneremail}}">{{owner}}</a></li>
 					<li>{{street}}, {{city}}, {{state}}</li>
-					{{#tooldetails}}<li><small>NOTES : </small><em>{{tooldetails}}</em></li>{{/tooldetails}}
 					<li><a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
+					{{#tooldetails}}
+					<li><small>NOTES : </small>{{tooldetails}}</li>
+					{{/tooldetails}}
 				</ul>
 			</div>
 		</div>
