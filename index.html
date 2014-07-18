@@ -49,7 +49,7 @@
 
 		<script id="tools" type="text/html">
 		{{#rows}}
-		<div id="{{rowNumber}}" class="tool-box">
+		<div id="{{rowNumber}}" class="tool-box {{^checkedout}}available{{/checkedout}}">
 			<span class="tool-box-tool">{{tool}}</span>
 			<div class="tool-box-bottom {{rowNumber}}">
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
