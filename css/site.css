@@ -32,7 +32,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
    #0087ff; green */
 
 #tools {-webkit-column-count:3; -webkit-column-gap : 16px; -webkit-column-width: 250px;}
-.tool-box { background: #E0E0DF; color: #9B9A9A; padding: 12px; margin-bottom: 16px; box-sizing: border-box; -webkit-column-break-inside:avoid; }
+.tool-box { background: #E0E0DF; color: #5A5A5A; padding: 12px; margin-bottom: 16px; box-sizing: border-box; -webkit-column-break-inside:avoid; }
 .tool-box a {border-color: #9B9A9A;}
 .tool-box.available {background: #0087ff; color: #fff;}
 .tool-box.available a {border-color: #fff;}
@@ -44,8 +44,10 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 .tool-box li {margin: 10px 0px;}
 .tool-box-borrow {display: block; box-sizing: border-box; position: relative; background: #fff; color: #0087ff; padding: 4px 0px; font-family: Source Sans Pro;
  	letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer; border: 1px solid transparent;}
-/*.tool-box-borrow a {color: #0087ff;}
-*/.tool-box-borrow:hover { border: 1px solid #fff; color: #fff; background-color: transparent;}
+/*.tool-box-borrow a {color: #0087ff;}*/
+.tool-box-borrow:hover { border: 1px solid #fff; color: #fff; background-color: transparent;}
+.tool-box-borrowed {display: block; box-sizing: border-box; position: relative; background-color: #B6B6B6; color: #E0E0DF; padding: 4px 0px; font-family: Source Sans Pro;
+  letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; border: 1px solid #B6B6B6;}
 
 .tool-box-bottom {display: none;}
 

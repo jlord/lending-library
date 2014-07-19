@@ -52,6 +52,7 @@
 		<div id="{{rowNumber}}" class="tool-box {{^checkedout}}available{{/checkedout}}">
 			<span class="tool-box-tool">{{tool}}</span>
 			<div class="tool-box-bottom {{rowNumber}}">
+				{{#checkedout}} <span class="tool-box-borrowed">ON LOAN</span>{{/checkedout}}
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
 					<li><small>WHO / WHERE : </small></li>
