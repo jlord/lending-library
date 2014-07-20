@@ -85,12 +85,18 @@
   		$('#tools').html(tools)
   	}
 
+  	if ($('.button-pressed')) {
+  		$('.tool-box').filter('.available').hide()
+  	}
+
+
 		// toggle available/all tools with search as well
 		$('#showAvailable').live("click", function(event) {
 			var searchValue = $('#toolSearch').val()
 			if ($(this).hasClass('button-pressed')) {
 				console.log("UNPRESSED")
 				$(this).removeClass('button-pressed').removeClass('onlyAvailable').html('Show Available')
+				$('.tool-box').not('.available').show()
 				if (!searchValue) return $('.tool-box').show() // drawToolBox(gData)
 				toolsFromSearch(searchValue)
 			}
@@ -151,10 +157,14 @@
 				var content = $(this).html().toLowerCase()
 				return content.match(searchTerm)
 			}).parent().hide()
-			$('.tool-box-tool').filter(function() {
-				var content = $(this).html().toLowerCase()
-				return content.match(searchTerm)
-			}).parent().show()
+			// $('.tool-box-tool').not(function() {
+			// 	var content = $(this).html().toLowerCase()
+			// 	return content.match(searchTerm)
+			// }).parent().hide()
+			// $('.tool-box-tool').filter(function() {
+			// 	var content = $(this).html().toLowerCase()
+			// 	return content.match(searchTerm)
+			// }).parent().show()
 			// var searchedData = Sheetsee.getMatches(gData, searchTerm, "tool")
 			// console.log(searchedData.length)
 			// return drawToolBox(searchedData)
