@@ -4,7 +4,7 @@
 		<meta charset='utf-8'>
 		<script type="text/javascript" src="js/ICanHaz.js"></script>
 		<script src='js/jquery.js'></script>
-		<script type="text/javascript" src='js/sheetsee.js'></script>
+		<!--<script type="text/javascript" src='js/sheetsee.js'></script>-->
 		<script type="text/javascript" src='js/data.js'></script>
 		<link rel="shortcut icon" href="https://raw.github.com/jllord/sheetsee-cache/master/favicon-p.png"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,900' rel='stylesheet' type='text/css'>
@@ -27,18 +27,25 @@
 		<div id="tools" class="container"></div>
 		<div id="info" class="container">
 				<div class="span1">
-					<h4>USE THIS</h4>
-					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows. Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
+					<h4>CONTRIBUTE TO THIS LIBRARY</h4>
+					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows of the spreadsheet feeding data to this site.</p> 
+					<p>Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
 
-					<h4>OPEN SOURCE PROJECT</h4>
-					<p>The design and code for this website is open source on <a href="http://www.github.com" target="_blank">GitHub</a>, that means free for anyone to use. The data fueling this website is managed free and easily through a <a href="http://drive.doogle.com" target="_blank">Google Spreadsheet</a> that looks similar <a href="https://docs.google.com/spreadsheet/ccc?key=0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c&usp=sharing" target="_blank">to this one</a>.</p>
+					<p>More details for using this project <a href="http://www.github.com/jlord/sheetsee-tool-lending" target="_blank">here</a>.
+
 				</div>
 
 				<div class="span1">
 					<h4>START YOUR OWN</h4>
-					<p>The site can be duplicated and live in minutes. It is an <a href="http://www.github.com/jlord/sheetsee-tool-lending" target="_blank">open source project</a> on GitHub, which hosts webpages for projects for free with <a href="http://pages.github.com" target="_blank">GitHub Pages</a>. All you need to do is <strong>fork</strong> the project to your account (also free) and copy and paste in your spreadsheet's unique key. More details are available on the <a href="http://www.github.com/jlord/sheetsee-tool-lending#hi" target="_blank">readme</a>.</p>
+					<p>The site is open source (free for all), uses a Google Spreadsheet for the data and is designed to be duplicated and live in minutes (Fork-n-go!). You can set up your own by following the instructions attached to the  <a href="http://www.github.com/jlord/sheetsee-tool-lending" target="_blank">project's code</a> on GitHub. GitHub also hosts these pages for free with <a href="http://pages.github.com" target="_blank">GitHub Pages</a>.
 
-					<p>Jessica Lord built this. Contact via <a href="mailto:to.jlord@gmail.com">email</a>, <a href="http://www.twitter.com/jllord">tweet</a> or <a href="http://www.github.com/jlord" target="_blank">pull request</a>.
+					<p>
+						<a class="imglink" href="http://jlord.github.io/forkngo" target="_blank">
+							<img src="https://raw.githubusercontent.com/jlord/forkngo/gh-pages/badges/charcoal.png" width="200">
+						</a>
+					</p>
+
+					<p>Built by <a href="http://www.twitter.com/jllord">@jllord</a>.
 
 				</div>
 		</div>
@@ -120,38 +127,34 @@
    			$(this).closest('div').addClass('selected-tool')
    		}
    	})
+
    	// filter input
 	  $('.clear').on("click", function() {
 	    $(this.id + "#toolSearch").val("")
 	    drawToolBox(gData)
+	    $('#showAvailable').removeClass('button-pressed')
+	    	.removeClass('onlyAvailable').html('Show Available')
 	  })
 
     $('#toolSearch').keyup(function(e) {
     	var text = $(e.target).val()
     	if (text === "") return drawToolBox(gData)
-	
 			if ($('.button-pressed').length === 1) {
 				console.log("Hide unavailable")
 				$('.tool-box').not('.available').hide()
 			}
-
 			return toolsFromSearch(text)
-			// $('.tool-box-tool').filter(function() {
-			// 	// console.log(this)
-			// 	if ($(this).html().match(text)) {
-			// 		console.log("match", $(this).html())
-			// 		return $(this).parent().show()
-			// 	} else {
-			// 		return $(this).parent().hide()
-			// 	}
-			// 	return this.innerHTML.match()
-			// })
   	})
 
 		function toolsFromSearch(searchTerm) {
 			$('.tool-box-tool').not(function() {
-				return $(this).html().match(searchTerm)
+				var content = $(this).html().toLowerCase()
+				return content.match(searchTerm)
 			}).parent().hide()
+			$('.tool-box-tool').filter(function() {
+				var content = $(this).html().toLowerCase()
+				return content.match(searchTerm)
+			}).parent().show()
 			// var searchedData = Sheetsee.getMatches(gData, searchTerm, "tool")
 			// console.log(searchedData.length)
 			// return drawToolBox(searchedData)
