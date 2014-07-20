@@ -6,6 +6,7 @@
 		<script src='js/jquery.js'></script>
 		<!--<script type="text/javascript" src='js/sheetsee.js'></script>-->
 		<script type="text/javascript" src='js/data.js'></script>
+		<script type="text/javascript" src='js/site.js'></script>
 		<link rel="shortcut icon" href="https://raw.github.com/jllord/sheetsee-cache/master/favicon-p.png"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,900' rel='stylesheet' type='text/css'>
 		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
@@ -28,7 +29,7 @@
 		<div id="info" class="container">
 				<div class="span1">
 					<h4>CONTRIBUTE TO THIS LIBRARY</h4>
-					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows of the spreadsheet feeding data to this site.</p> 
+					<p>If you've been invited by the person who initated this near you, you'll have access and the ability to edit the rows of the spreadsheet feeding data to this site.</p>
 					<p>Simply add the rows for the tools you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
 
 					<p>More details for using this project <a href="http://www.github.com/jlord/sheetsee-tool-lending" target="_blank">here</a>.
@@ -52,7 +53,7 @@
 
 		<script id="tools" type="text/html">
 		{{#rows}}
-		<div id="{{rowNumber}}" class="tool-box {{^checkedout}}available{{/checkedout}}">
+		<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
 			<span class="tool-box-tool">{{tool}}</span>
 			<div class="tool-box-bottom {{rowNumber}}">
 				{{#checkedout}} <span class="tool-box-borrowed">ON LOAN</span>{{/checkedout}}
@@ -74,101 +75,9 @@
 		<script type="text/javascript">
 	  document.addEventListener('DOMContentLoaded', function() {
 	  	// original tool boxes
-	  	console.log(gData.length)
+	  	console.log(gData.length, 'cool')
 	  	drawToolBox(gData)
 	  })
-
-  	function drawToolBox(data) {
-  		var tools = ich.tools({
-  			"rows": data
-  		})
-  		$('#tools').html(tools)
-  	}
-
-  	if ($('.button-pressed')) {
-  		$('.tool-box').filter('.available').hide()
-  	}
-
-
-		// toggle available/all tools with search as well
-		$('#showAvailable').live("click", function(event) {
-			var searchValue = $('#toolSearch').val()
-			if ($(this).hasClass('button-pressed')) {
-				console.log("UNPRESSED")
-				$(this).removeClass('button-pressed').removeClass('onlyAvailable').html('Show Available')
-				$('.tool-box').not('.available').show()
-				if (!searchValue) return $('.tool-box').show() // drawToolBox(gData)
-				toolsFromSearch(searchValue)
-			}
-			else {
-				$(this).addClass('button-pressed').addClass('onlyAvailable').html('Show All')
-				if (!searchValue) {
-					console.log("PRESSED, NO SEARCH VALUE")
-					// var availableTools = Sheetsee.getMatches(gData,"yes", "checkedout")
-					// console.log($('.tool-box').length)
-					// drawToolBox(availableTools)
-					$('.tool-box').not('.available').hide()
-				}
-				else {
-					console.log("PRESSED, SEARCH VALUE")
-					// var searchResults = Sheetsee.getKeyword(gData, searchValue)
-					// var availableFromSearch = Sheetsee.getMatches(searchResults,"", "checkedout")
-					// console.log(availableFromSearch)
-					// drawToolBox(availableFromSearch)
-					// // $('.tool-box').filter('.available').hide()
-					$('.tool-box').not('.available').hide()
-				}
-			}
-		})
-
-	  // toggle tool box expand
-	  $('.tool-box-tool').live("click", function(event) {
-   		var rowNumber = $(this).closest("div").attr("id")
-   		if ($(this).closest('div').hasClass('selected-tool')) {
-   			$('.tool-box-bottom' + '.' + rowNumber).css('display', 'none')
-   			$(this).closest('div').removeClass('selected-tool')
-   		}
-   		else {
-   			$('.tool-box-bottom' + '.' + rowNumber).css('display', 'inherit')
-   			$(this).closest('div').addClass('selected-tool')
-   		}
-   	})
-
-   	// filter input
-	  $('.clear').on("click", function() {
-	    $(this.id + "#toolSearch").val("")
-	    drawToolBox(gData)
-	    $('#showAvailable').removeClass('button-pressed')
-	    	.removeClass('onlyAvailable').html('Show Available')
-	  })
-
-    $('#toolSearch').keyup(function(e) {
-    	var text = $(e.target).val()
-    	if (text === "") return drawToolBox(gData)
-			if ($('.button-pressed').length === 1) {
-				console.log("Hide unavailable")
-				$('.tool-box').not('.available').hide()
-			}
-			return toolsFromSearch(text)
-  	})
-
-		function toolsFromSearch(searchTerm) {
-			$('.tool-box-tool').not(function() {
-				var content = $(this).html().toLowerCase()
-				return content.match(searchTerm)
-			}).parent().hide()
-			// $('.tool-box-tool').not(function() {
-			// 	var content = $(this).html().toLowerCase()
-			// 	return content.match(searchTerm)
-			// }).parent().hide()
-			// $('.tool-box-tool').filter(function() {
-			// 	var content = $(this).html().toLowerCase()
-			// 	return content.match(searchTerm)
-			// }).parent().show()
-			// var searchedData = Sheetsee.getMatches(gData, searchTerm, "tool")
-			// console.log(searchedData.length)
-			// return drawToolBox(searchedData)
-		}
 		</script>
 	</body>
 </html>
