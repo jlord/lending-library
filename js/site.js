@@ -23,6 +23,15 @@ function toggleAvailable() {
 
 $(document).on( "click", "#showAvailable", toggleAvailable)
 
+$(document).on( "click", ".clear", function() {
+  $(this.id + "#toolSearch").val("")
+  drawToolBox(gData)
+  $('#showAvailable').removeClass('button-pressed')
+    .html('Show Available')
+})
+
+
+
 //
 // if ($('.button-pressed')) {
 //   $('.tool-box').filter('.available').hide()
