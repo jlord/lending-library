@@ -1,4 +1,3 @@
-// draw the initial table
 function drawToolBox(data) {
   var tools = ich.tools({
     'rows': data
@@ -6,9 +5,38 @@ function drawToolBox(data) {
   $('#tools').html(tools)
 }
 
-function toggleAvailable() {
+$(document).on( 'click', '#showAvailable', toggleAvailable)
 
-  console.log('toogle')
+$(document).on( 'click', '.clear', function(e) {
+  clearSearch(e)
+  $('#showAvailable').removeClass('button-pressed')
+    .html('Show Available')
+})
+
+$(document).on('keyup', '#toolSearch', function(e) {
+  var text = $(e.target).val()
+
+  if (text === '') return clearSearch(e)
+  if ($('.button-pressed').length === 1) {
+    console.log('Hide unavailable')
+    $('.tool-box').filter('.not-available').hide()
+  }
+  filterTools(text)
+})
+
+$(document).on( 'click', '.tool-box-tool', function(e) {
+  var rowNumber = $(this).closest("div").attr("id")
+  if ($(this).closest('div').hasClass('selected-tool')) {
+    $('.tool-box-bottom' + '.' + rowNumber).css('display', 'none')
+    $(this).closest('div').removeClass('selected-tool')
+  }
+  else {
+    $('.tool-box-bottom' + '.' + rowNumber).css('display', 'inherit')
+    $(this).closest('div').addClass('selected-tool')
+  }
+})
+
+function toggleAvailable() {
   if ($('.button-pressed').length === 0) {
     console.log('off')
     $('#showAvailable').addClass('button-pressed')
@@ -26,26 +54,6 @@ function toggleAvailable() {
   }
 }
 
-$(document).on('keyup', '#toolSearch', function(e) {
-  var text = $(e.target).val()
-
-  if (text === '') return clearSearch(e)
-  if ($('.button-pressed').length === 1) {
-    console.log('Hide unavailable')
-    $('.tool-box').filter('.not-available').hide()
-  }
-  //return toolsFromSearch(text)
-  filterTools(text)
-})
-
-$(document).on( 'click', '#showAvailable', toggleAvailable)
-
-$(document).on( 'click', '.clear', function(e) {
-  clearSearch(e)
-  $('#showAvailable').removeClass('button-pressed')
-    .html('Show Available')
-})
-
 function clearSearch(e) {
   console.log('clear')
   $('#toolSearch').val('')
@@ -59,17 +67,4 @@ function filterTools(text) {
     $(this).parent().show()
   } else $(this).parent().hide()
   })
-
 }
-
-$(document).on( 'click', '.tool-box-tool', function(event) {
-	var rowNumber = $(this).closest("div").attr("id")
-	if ($(this).closest('div').hasClass('selected-tool')) {
-		$('.tool-box-bottom' + '.' + rowNumber).css('display', 'none')
-		$(this).closest('div').removeClass('selected-tool')
-	}
-	else {
-		$('.tool-box-bottom' + '.' + rowNumber).css('display', 'inherit')
-		$(this).closest('div').addClass('selected-tool')
-	}
-})
