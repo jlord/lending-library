@@ -61,3 +61,15 @@ function filterTools(text) {
   })
 
 }
+
+$(document).on( 'click', '.tool-box-tool', function(event) {
+	var rowNumber = $(this).closest("div").attr("id")
+	if ($(this).closest('div').hasClass('selected-tool')) {
+		$('.tool-box-bottom' + '.' + rowNumber).css('display', 'none')
+		$(this).closest('div').removeClass('selected-tool')
+	}
+	else {
+		$('.tool-box-bottom' + '.' + rowNumber).css('display', 'inherit')
+		$(this).closest('div').addClass('selected-tool')
+	}
+})
