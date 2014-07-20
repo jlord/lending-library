@@ -1,6 +1,6 @@
 body {font-family: Source Sans Pro; font-weight: lighter;  border: 52px #F8F8F8 solid; margin: 0px; padding: 20px 20px 200px 20px;}
 a {text-decoration: none; color: inherit; border-bottom: 1px dotted;}
-a:hover, .tool-box.available a:hover, .tool-box a:hover {color: #333; border-color: #333;}
+a:hover, .tool-box.available a:hover, .tool-box a:hover {color: #55b6ff; border-color: #55b6ff;}
 small {font-family: Source Sans Pro; font-weight: 700; font-size: 11px; letter-spacing: .08em; }
 h1 {font-size: 68px; color: #0087ff; margin: 30px 0px 20px 0px;}
 h4, h5 {font-family: Source Sans Pro; margin: 4px 0px; }
@@ -15,18 +15,19 @@ h5 {font-weight: lighter; color: #0087ff; text-transform: uppercase;}
 ul.nav {list-style: none; margin: 0px; padding: 0px; font-family: Source Sans Pro; color: #0087ff;}
 ul.nav li {display: inline; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding-right: 4px;}
 ul.nav a {color: #0087ff; border-bottom: 1px dotted #0087ff;}
-ul.nav a:hover {color: #333; border-color: #333;}
+ul.nav a:hover {color: #55b6ff; border-color: #55b6ff;}
 
 #info, header {padding-right: 10px; padding-left: 10px;}
-#info a {color: #333; border-color: #333; font-weight: 500;}
-#info a:hover {color: #0087ff; border-color: #0087ff;}
+#info a {color: #55b6ff; border-color: #55b6ff;}
+#info a:hover {color: #55b6ff; border-color: #55b6ff;}
+#info a {color: #333; border-color: #333;}
 #info p {font-family: Helvetica; font-weight: lighter; font-size: 12px; line-height: 1.5em;}
 
 input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px; border: none; border-bottom: 1px solid #0087ff; background-color: transparent; padding: 0px; font-family: Source Sans Pro; color: #acacac; font-size: 13px; height: 22px;}
 
 .sml-button {cursor: pointer;padding: 5px 7px; background-color: #0087ff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; text-align: center; color: #fff; font-family: Source Sans Pro;}
 .sml-button:hover {opacity: .75;}
-.button-pressed {background: #60bd68;}
+.button-pressed {background: #55b6ff;}
 
 /* #0087ff blue
    #0087ff; green */
@@ -45,7 +46,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 .tool-box-borrow {display: block; box-sizing: border-box; position: relative; background: #fff; color: #0087ff; padding: 4px 0px; font-family: Source Sans Pro;
  	letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer; border: 1px solid transparent;}
 /*.tool-box-borrow a {color: #0087ff;}*/
-.tool-box-borrow:hover { border: 1px solid #fff; color: #fff; background-color: transparent;}
+.tool-box-borrow:hover { border: 1px solid #55b6ff; color: #fff; background-color: #55b6ff;}
 .tool-box-borrowed {display: block; box-sizing: border-box; position: relative; background-color: #B6B6B6; color: #E0E0DF; padding: 4px 0px; font-family: Source Sans Pro;
   letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; border: 1px solid #B6B6B6;}
 

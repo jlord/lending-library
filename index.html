@@ -85,20 +85,30 @@
 		$('#showAvailable').live("click", function(event) {
 			var searchValue = $('#toolSearch').val()
 			if ($(this).hasClass('button-pressed')) {
+				console.log("UNPRESSED")
 				$(this).removeClass('button-pressed').removeClass('onlyAvailable').html('Show Available')
-				if (!searchValue) drawToolBox(gData)
+				if (!searchValue) return $('.tool-box').show() // drawToolBox(gData)
 				toolsFromSearch(searchValue)
 			}
 			else {
 				$(this).addClass('button-pressed').addClass('onlyAvailable').html('Show All')
 				if (!searchValue) {
-					var availableTools = Sheetsee.getMatches(gData,"yes", "checkedout")
-					drawToolBox(availableTools)
+					console.log("PRESSED, NO SEARCH VALUE")
+					// var availableTools = Sheetsee.getMatches(gData,"yes", "checkedout")
+					// console.log($('.tool-box').length)
+					// drawToolBox(availableTools)
+					$('.tool-box').not('.available').hide()
 				}
 				else {
+					console.log("PRESSED, SEARCH VALUE")
 					var searchResults = Sheetsee.getKeyword(gData, searchValue)
-					var availableFromSearch = Sheetsee.getMatches(searchResults,"yes", "checkedout")
+					var availableFromSearch = Sheetsee.getMatches(searchResults,"", "checkedout")
+					console.log(availableFromSearch)
 					drawToolBox(availableFromSearch)
+					// // $('.tool-box').filter('.available').hide()
+					// $('.tool-box').not(function() {
+    	// 		return $( this ).hasClass( "available" )
+  			// 	})
 				}
 			}
 		})
@@ -122,8 +132,23 @@
 	  })
 
     $('#toolSearch').keyup(function(e) {
-      var text = $(e.target).val()
+    	var text = $(e.target).val()
+    	if (text === "") return drawToolBox(gData)
 			toolsFromSearch(text)
+			if ($('.button-pressed').length === 1) {
+				console.log("Hide unavailable")
+				$('.tool-box').not('.available').hide()
+			}
+			// $('.tool-box-tool').filter(function() {
+			// 	// console.log(this)
+			// 	if ($(this).html().match(text)) {
+			// 		console.log("match", $(this).html())
+			// 		return $(this).parent().show()
+			// 	} else {
+			// 		return $(this).parent().hide()
+			// 	}
+			// 	return this.innerHTML.match()
+			// })
   	})
 
 		function toolsFromSearch(searchTerm) {
