@@ -14,7 +14,7 @@ $(document).on( 'click', '.clear', function(e) {
 })
 
 $(document).on('keyup', '#toolSearch', function(e) {
-  var text = $(e.target).val()
+  var text = $(e.target).val().trim().toLowerCase()
 
   if (text === '') return clearSearch(e)
   if ($('.button-pressed').length === 1) {
