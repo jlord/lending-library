@@ -3,10 +3,10 @@
 		<title>Tool Lending</title>
 		<meta charset='utf-8'>
 		<script type="text/javascript" src="js/ICanHaz.js"></script>
-		<script src='js/jquery.js'></script>
-		<!--<script type="text/javascript" src='js/sheetsee.js'></script>-->
+		<script type="text/javascript" src='js/jquery.js'></script>
 		<script type="text/javascript" src='js/data.js'></script>
 		<script type="text/javascript" src='js/site.js'></script>
+		<script type="text/javascript" src='js/tabletop1.3.4.js'></script>
 		<link rel="shortcut icon" href="https://raw.github.com/jllord/sheetsee-cache/master/favicon-p.png"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,900' rel='stylesheet' type='text/css'>
 		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
@@ -25,7 +25,7 @@
 			<span class="clear sml-button">Clear</span>
 			<span id="showAvailable" class="sml-button">Show Available</span>
 		</div>
-		<div id="tools" class="container"></div>
+		<div id="tools" class="container"><span class="flash animated">LOADING...</span></div>
 		<div id="info" class="container">
 				<div class="span1">
 					<h4>CONTRIBUTE TO THIS LIBRARY</h4>
@@ -73,10 +73,10 @@
 		</script>
 
 		<script type="text/javascript">
-	  document.addEventListener('DOMContentLoaded', function() {
-	  	// original tool boxes
-	  	drawToolBox(gData)
-	  })
+		  document.addEventListener('DOMContentLoaded', function() {
+	      var URL = "0AvFUWxii39gXdGxhcjhzYzlBX2pyVFZZU2VjZ3BHZ3c"
+	      Tabletop.init( { key: URL, callback: drawToolBox, simpleSheet: true } )
+	    })
 		</script>
 	</body>
 </html>
