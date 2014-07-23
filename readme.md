@@ -18,6 +18,20 @@ If you don't have a GitHub account, [sign up](http://www.github.com)! You'll nee
 5. On `line 77` or thereabouts, replace the existing key with the one from your spreadsheet.
 6. Click 'Commit' to save your change.
 
-**BOOM** Now visit your site at: **youGitHubName.github.io/tool-lending**.
+Now visit your site at: `youGitHubName.github.io/tool-lending`
 
-You're done, invite some friends and share some things! :wrench:
+### You're done, invite some friends and share some things! :wrench:
+
+---
+
+### More Info
+
+**GitHub Pages**
+
+GitHub hosts (for free!) all web files on branches named `gh-pages` at a url matching this pattern: username.github.io/reponame. This repo is just a website, so it only has one branch, `gh-pages`. That's why when you fork it and make a commit, you too have a live and hosted website.
+
+**Changing the Name of Repo or URL**
+
+If you want to change the name of your fork of this (like, say, to 'cats'), then just go to the settings of your fork on GitHub and the first section allows you to change your fork's name. This also changes your url: username.github/cats.
+
+If you want to do a custom domain, you can do that too! See the [GitHub article](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages) on how.
