@@ -8,17 +8,8 @@ h5 {font-weight: lighter; color: #0087ff; text-transform: uppercase;}
 .container {max-width: 870px; margin: 0px auto; overflow: auto; padding: 20px 0px; }
 *:focus {outline: 0;}
 
-.span1 {max-width: 48%; display: inline-block; box-sizing: border-box;
--moz-box-sizing: border-box; padding-right: 18px; /*min-width: 350px;*/ vertical-align: top;}
+.span1 {max-width: 48%; display: inline-block; box-sizing: border-box; -moz-box-sizing: border-box; padding-right: 18px; vertical-align: top;}
 .span1:last-child {padding-right: 0px; }
-
-/*box-sizing: border-box;
--moz-box-sizing: border-box;
-display: inline-block;
-text-align: left;
-vertical-align: top;
-width: 280px;
-margin: 40px;*/
 
 #info a img {border: 0; text-decoration: none;}
 
@@ -57,7 +48,6 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 .tool-box li {margin: 10px 0px;}
 .tool-box-borrow {display: block; box-sizing: border-box; position: relative; background: #fff; color: #0087ff; padding: 4px 0px; font-family: Source Sans Pro;
  	letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; cursor: pointer; border: 1px solid transparent;}
-/*.tool-box-borrow a {color: #0087ff;}*/
 .tool-box-borrow:hover { border: 1px solid #55b6ff; color: #fff; background-color: #55b6ff;}
 .tool-box-borrowed {display: block; box-sizing: border-box; position: relative; background-color: #B6B6B6; color: #E0E0DF; padding: 4px 0px; font-family: Source Sans Pro;
   letter-spacing: .08em; font-weight: 900; text-align: center; width: 100%; margin: 12px 0px; border: 1px solid #B6B6B6;}
@@ -69,12 +59,44 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 
 a.imglink {border: none;}
 
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+*/
+
+.animated {
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
 	#tools {-webkit-column-count:2; }
   .span1 {max-width: 100%;}
 }
-
-/*
-dark #0087ff
-light #60bd68
-hover #eee
