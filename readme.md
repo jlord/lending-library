@@ -18,7 +18,7 @@ If you don't have a GitHub account, [sign up](http://www.github.com)! You'll nee
 5. On `line 77` or thereabouts, replace the existing key with the one from your spreadsheet.
 6. Click 'Commit' to save your change.
 
-Now visit your site at: `youGitHubName.github.io/tool-lending`
+Now visit your site at: `youGitHubName.github.io/lending-library`
 
 ### You're done, invite some friends and share some things! :wrench:
 
