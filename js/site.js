@@ -1,3 +1,13 @@
+var gData;
+/*
+    Draw the toolbox with an array of spreadsheet data
+    and cache the data in a global variable.
+*/
+function initialize(data) {
+    gData = data
+    drawToolBox(data)
+}
+
 function drawToolBox(data) {
   var tools = ich.tools({
     'rows': data
