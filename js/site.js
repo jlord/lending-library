@@ -23,7 +23,7 @@ $(document).on( 'click', '.clear', function(e) {
     .html('Show Available')
 })
 
-$(document).on('keyup', '#toolSearch', function(e) {
+$(document).on('keyup search', '#toolSearch', function(e) {
   var text = $(e.target).val().trim().toLowerCase()
 
   if (text === '') return clearSearch(e)
