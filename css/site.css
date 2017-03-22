@@ -40,6 +40,9 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]) {margin: 19px 4px
 #tools {-webkit-column-count:3; -webkit-column-gap : 16px; -webkit-column-width: 250px; -moz-column-count:3;
   -moz-column-gap : 16px; -moz-column-width: 250px;}
 
+#tools.show-available .not-available { display: none; }
+#tools .filtered { display: none; }
+
 .tool-box { background: #E0E0DF; color: #5A5A5A; padding: 12px; margin-bottom: 16px; box-sizing: border-box;
    -mox-box-sizing:border-box; -webkit-column-break-inside:avoid; -moz-column-break-inside:avoid;
    display: table; width: 100%;}

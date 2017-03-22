@@ -19,18 +19,12 @@ $(document).on( 'click', '#showAvailable', toggleAvailable)
 
 $(document).on( 'click', '.clear', function(e) {
   clearSearch(e)
-  $('#showAvailable').removeClass('button-pressed')
-    .html('Show Available')
+  toggleAvailable(false)
 })
 
 $(document).on('keyup search', '#toolSearch', function(e) {
   var text = $(e.target).val().trim().toLowerCase()
-
   if (text === '') return clearSearch(e)
-  if ($('.button-pressed').length === 1) {
-    console.log('Hide unavailable')
-    $('.tool-box').filter('.not-available').hide()
-  }
   filterTools(text)
 })
 
@@ -46,22 +40,25 @@ $(document).on( 'click', '.tool-box-tool', function(e) {
   }
 })
 
-function toggleAvailable() {
-  if ($('.button-pressed').length === 0) {
-    console.log('off')
-    $('#showAvailable').addClass('button-pressed')
-      .html('Show All')
-    $('.not-available').hide()
-  } else {
-    console.log('on')
-    $('#showAvailable')
-      .html('Show Available').removeClass('button-pressed')
-    if ($('#toolSearch').val() != '') {
-      console.log("search not empty")
-      return filterTools($('#toolSearch').val())
+/*
+    Toggle whether unavailable items are displayed or not
+
+    [state] - optionally specify the desired state, either true or false. If
+    not defined, it will just toggle.
+*/
+function toggleAvailable(state) {
+    // Since #showAvailable and #tools both start out without the class, they
+    // will remain in sync
+    let button = $('#showAvailable').toggleClass('button-pressed', state)
+    // CSS in site.css hides tools that are '.show-available .not-available'
+    $('#tools').toggleClass('show-available', state)
+
+    // Update the button text
+    if (button.hasClass('button-pressed')) {
+        button.html("Show All")
+    } else {
+        button.html("Show Available")
     }
-    $('.not-available').show()
-  }
 }
 
 function clearSearch(e) {
@@ -74,7 +71,7 @@ function filterTools(text) {
   $('.tool-box-tool').each(function() {
   var tool = $(this).html().toLowerCase()
   if (tool.match(text)) {
-    $(this).parent().show()
-  } else $(this).parent().hide()
+    $(this).parent().removeClass('filtered')
+} else $(this).parent().addClass('filtered')
   })
 }
